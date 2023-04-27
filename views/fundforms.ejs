@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   
+<style>
+.gradient-custom {
+        /* fallback for old browsers */
+background: #f093fb;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+.hide{
+ display:none;
+ }
+ .slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 16px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 16px;
+  border-radius: 50%;
+  background:black;
+  cursor: pointer;
+}
+
+
+</style>
+   
+</head>
+<body>
+<form action="/form" method="post" >
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Funds Collection Form</h3>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1m">First name</label>
+                      <input type="text" id="form3Example1m" name="fname" class="form-control form-control-lg" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1m">PhoneNumber</label>
+                      <input type="tel" id="form3Example1m1" name="tel" class="form-control form-control-lg"/>
+                  <input type="checkbox"> Enter the same number used in registration form<br>
+                </div><br>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                     <label class="form-label" for="form3Example1m">pickup location?</label>
+                      <input type="text" id="form3Example1m" name="location" class="form-control form-control-lg" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                      <div class="form-outline">
+                        <label class="form-label" for="form3Example1m">preferred Time</label>
+                        <input type="text" id="form3Example1m" name="time" class="form-control form-control-lg"/></div>
+                      </div>
+                    </div>
+                  </div>
+  
+    
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1m">Pickup day</label><br>
+                    <input type="date" id="form3Example1m" name="date" value="0000-00-00" min="2023-01-01" max="2023-12-31" class="form-control form-control-lg" /><br>
+                  </div>
+                </div>
+              </div>
+
+
+                <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+                  <h6 class="mb-0 me-4">Gender: </h6>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+                      value="option1" />
+                    <label class="form-check-label" for="femaleGender">Female</label>
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+                      value="option2" />
+                    <label class="form-check-label" for="maleGender">Male</label>
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+                      value="option3" />
+                    <label class="form-check-label" for="otherGender">Other</label>
+                  </div>
+
+                </div>
+       
+
+               
+                <select id="picker" onChange="handleSelection(value)" name="picker">
+                    <option selected>Please select one </option>
+                    <option value="div1" >food </option>
+                    <option value="div2">grocery </option>
+                    <option value="div3">clothes </option>
+                    <option value="div4">others </option>
+                </select>
+                <div class="hide" id="div1">
+                    <label class="form-label" for="type">Food type:</label><br>
+                    <input type="radio" id="type" name="type" value="wet">Wet
+                    <input type="radio" id="type" name="type" value="dry">Dry<br><br>
+                    <label class="form-label" for="item">Food item(s)</label>
+                    <input type="text" id="item" name="items" class="form-control form-control-lg"/>
+                    <label class="form-label" for="day">Quantity:500 persons</label><br>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="500" value="50" class="slider" id="myRange">
+                        <p>Value: <span id="demo" name="strength"></span></p>
+                        <input type="checkbox">  I assure that food quality and hygiene has maintained
+                    </div>
+                </div>
+                <div class="hide" id="div2"><br>
+                    <INPUT type="button" value="Add Item" onclick="addRow('dataTable')" />
+                    <INPUT type="button" value="Delete Item" onclick="deleteRow('dataTable')" /><br><br>
+                    <TABLE id="dataTable" width="350px" border="1">
+                        <TR>
+                            <TD><INPUT type="checkbox" name="chk" /></TD>
+                            <TD><INPUT type="text" name="txt1" placeholder="Item type"/></TD>
+                            <TD>
+                                <INPUT type="text" name="txt2" placeholder="Quantity"/>
+                            </TD>
+                        </TR>
+                    </TABLE><br>
+                    
+                </div>
+                <div class="hide" id="div3"><br>
+                    <INPUT type="button" value="Add Item" onclick="add1('dataTable1')" />
+                    <INPUT type="button" value="Delete Item" onclick="delete1('dataTable1')" /><br><br>
+                    <TABLE id="dataTable1" width="350px" border="1">
+                        <TR>
+                            <TD><INPUT type="checkbox" name="chk" /></TD>
+                            <TD>
+                                <SELECT name="kids">
+                                    <OPTION value="kid">kids</OPTION>
+                                    <OPTION value="adult">adult</OPTION>
+                                </SELECT>
+                            </TD>
+                            <TD>
+                                <SELECT name="male">
+                                    <OPTION value="mal">male</OPTION>
+                                    <OPTION value="fem">female</OPTION>
+                                </SELECT>
+                            </TD>
+                            <TD>
+                                <INPUT type="text" name="txt" placeholder="Quantity"/>
+                            </TD>
+                        </TR>
+                    </TABLE><br>
+
+                </div>
+                <div class="hide" id="div4"><br>
+                    <textarea rows="4" cols="50" name="text" placeholder="if any other donations ..please state here" ></textarea>
+                </div><br><br>
+                <label class="form-label" for="form3Example97">Pincode</label>
+                <input type="number" id="form3Example97" name="pin" class="form-control form-control-lg" />
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example90">Address</label>
+                <input type="text" id="form3Example90"  name= "add" class="form-control form-control-lg" />
+               
+            </div>
+            <div class="d-flex justify-content-end pt-3">
+                <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                <button type="submit" class="btn btn-light btn-lg">submit</button>
+            </div>
+          </div>
+        </div>
+     </div>
+    </div>
+</div>
+</form>
+</section>
+
+<script type="text/javascript">
+ 
+ function handleSelection(choice) {
+ //document.getElementById('select').disabled=true;
+ if(choice=='div1')
+ {
+ document.getElementById(choice).style.display="block";
+ document.getElementById('div2').style.display="none";
+ document.getElementById('div3').style.display="none";
+ document.getElementById('div4').style.display="none";
+ }
+ if(choice=='div2')
+ {
+  document.getElementById(choice).style.display="block";
+ document.getElementById('div1').style.display="none";
+ document.getElementById('div3').style.display="none";
+ document.getElementById('div4').style.display="none";
+ }
+ if(choice=='div3'){
+  document.getElementById(choice).style.display="block";
+ document.getElementById('div1').style.display="none";
+ document.getElementById('div2').style.display="none";
+ document.getElementById('div4').style.display="none";
+ 
+ }
+ if(choice=='div4'){
+  document.getElementById(choice).style.display="block";
+ document.getElementById('div1').style.display="none";
+ document.getElementById('div2').style.display="none";
+ document.getElementById('div3').style.display="none";
+ }
+ }
+ var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+function addRow(tableID) {
+
+      var table = document.getElementById(tableID);
+
+      var rowCount = table.rows.length;
+      var row = table.insertRow(rowCount);
+
+      var colCount = table.rows[0].cells.length;
+
+      for(var i=0; i<colCount; i++) {
+
+        var newcell = row.insertCell(i);
+
+        newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+        //alert(newcell.childNodes);
+        switch(newcell.childNodes[0].type) {
+          case "text":
+              newcell.childNodes[0].value = "";
+              break;
+          case "checkbox":
+              newcell.childNodes[0].checked = false;
+              break;
+          case "select-one":
+              newcell.childNodes[0].selectedIndex = 0;
+              break;
+        }
+      }
+    }
+
+    function deleteRow(tableID) {
+      try {
+      var table = document.getElementById(tableID);
+      var rowCount = table.rows.length;
+
+      for(var i=0; i<rowCount; i++) {
+        var row = table.rows[i];
+        var chkbox = row.cells[0].childNodes[0];
+        if(null != chkbox && true == chkbox.checked) {
+          if(rowCount <= 1) {
+            alert("Cannot delete all the rows.");
+            break;
+          }
+          table.deleteRow(i);
+          rowCount--;
+          i--;
+        }
+
+
+      }
+      }catch(e) {
+        alert(e);
+      }
+    }
+    function add1(tableID1) {
+
+      var table = document.getElementById(tableID1);
+
+      var rowCount = table.rows.length;
+      var row = table.insertRow(rowCount);
+
+      var colCount = table.rows[0].cells.length;
+
+      for(var i=0; i<colCount; i++) {
+
+        var newcell = row.insertCell(i);
+
+        newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+        //alert(newcell.childNodes);
+        switch(newcell.childNodes[0].type) {
+          case "text":
+              newcell.childNodes[0].value = "";
+              break;
+          case "checkbox":
+              newcell.childNodes[0].checked = false;
+              break;
+          case "select-one":
+              newcell.childNodes[0].selectedIndex = 0;
+              break;
+        }
+      }
+    }
+    function delete1(tableID1) {
+      try {
+      var table = document.getElementById(tableID1);
+      var rowCount = table.rows.length;
+
+      for(var i=0; i<rowCount; i++) {
+        var row = table.rows[i];
+        var chkbox = row.cells[0].childNodes[0];
+        if(null != chkbox && true == chkbox.checked) {
+          if(rowCount <= 1) {
+            alert("Cannot delete all the rows.");
+            break;
+          }
+          table.deleteRow(i);
+          rowCount--;
+          i--;
+        }
+
+
+      }
+      }catch(e) {
+        alert(e);
+      }
+    }
+
+ </script>
+
+</body>
+</html>

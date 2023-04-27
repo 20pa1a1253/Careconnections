@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  .ie{
+    display: flex;
+    justify-content: space-evenly;
+  }
+ 
+  .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-top: 50px;
+  border-radius: 0.75rem;
+  background-color: white;
+  width: 400px;
+  height: 530px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),
+  0 2px 4px -2px rgba(0,0,0,.1);
+
+
+}
+
+.header {
+  position: relative;
+  background-clip: border-box;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.75rem;
+  background-color: rgb(33 150 243);
+  box-shadow: 0 10px 15px -3px rgba(33,150,243,.4),0 4px 6px -4px rgba(33,150,243,.4);
+  height: 14rem;
+}
+
+.info {
+  border: none;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.title {
+  color: rgb(38 50 56);
+  letter-spacing: 0;
+  line-height: 1.375;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer {
+  padding: 0.75rem;
+  border: 1px solid rgb(236 239 241);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 140, 255, 0.082);
+}
+
+.tag {
+  font-weight: 300;
+  font-size: .75rem;
+  display: block;
+}
+
+.action {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 6px -1px rgba(33,150,243,.4),0 2px 4px -2px rgba(33,150,243,.4);
+  color: rgb(255 255 255);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .75rem;
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(33 150 243);
+  border-radius: 0.5rem;
+}
+.header img{
+ width: 367px;
+ height: 14rem;
+ border-radius:0.75rem ;
+}
+
+
+
+ 
+  </style>
+</head>
+<body>
+<form action="donorReg.ejs"  method="GET">
+<div class="ie">
+  <div class="card">
+    <h3 align="center">Be a Donor</h3>
+    <div class="header">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrDN7Z3Io-XrAbQW0JBogmcMgMxisEygS5EA&usqp=CAU">
+    </div>
+    <div class="info">
+      <p class="title">"No one has ever become poor by giving." - Anne Fran</p>
+    </div>
+    <div class="footer">
+      <p class="tag">CareConnections</p>
+      <button type="submit" class="action">Register </button>
+    </div>
+  </div>
+  <br>
+  <div class="card">
+    <h3 align="center">Be a Organizer</h3>
+    <div class="header">
+      <img src="data:image/jpeg;base64,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">
+    </div>
+    <div class="info">
+      <p class="title">"We make a living by what we get, but we make a life by what we give." - Winston Churchill</p>
+    </div>
+    <div class="footer">
+      <p class="tag">CareConnections</p>
+      <a href="organReg.ejs">
+      <button type="button" href="organReg.ejs"class="action">Register</button></a>
+    </div>
+  </div>
+</div>
+</form>
+
+</body>
+</html>

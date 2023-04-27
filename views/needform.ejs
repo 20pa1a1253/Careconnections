@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   
+<style>
+.gradient-custom {
+        /* fallback for old browsers */
+background: #f093fb;
+
+/* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+
+/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+.hide{
+ display:none;
+ }
+ .slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 16px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 16px;
+  border-radius: 50%;
+  background:black;
+  cursor: pointer;
+}
+#checklist {
+    --background: #fff;
+    --text: #414856;
+    --check:#05030d;
+    --disabled: #c3c8de;
+    --width: 100px;
+    --height: 180px;
+    --border-radius: 10px;
+    background: var(--background);
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--border-radius);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+    padding: 30px 85px;
+    display: grid;
+    grid-template-columns: 30px auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #checklist label {
+    color: var(--text);
+    position: relative;
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    width: fit-content;
+    transition: color 0.3s ease;
+    margin-right: 20px;
+  }
+  
+  #checklist label::before, #checklist label::after {
+    content: "";
+    position: absolute;
+  }
+  
+  #checklist label::before {
+    height: 2px;
+    width: 8px;
+    left: -27px;
+    background: var(--check);
+    border-radius: 2px;
+    transition: background 0.3s ease;
+  }
+  
+  #checklist label:after {
+    height: 4px;
+    width: 4px;
+    top: 8px;
+    left: -25px;
+    border-radius: 50%;
+  }
+  
+  #checklist input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    height: 15px;
+    width: 15px;
+    outline: none;
+    border: 0;
+    margin: 0 15px 0 0;
+    cursor: pointer;
+    background: var(--background);
+    display: grid;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  #checklist input[type="checkbox"]::before, #checklist input[type="checkbox"]::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    top: auto;
+    background: var(--check);
+    border-radius: 2px;
+  }
+  
+  #checklist input[type="checkbox"]::before {
+    width: 0px;
+    right: 60%;
+    transform-origin: right bottom;
+  }
+  
+  #checklist input[type="checkbox"]::after {
+    width: 0px;
+    left: 40%;
+    transform-origin: left bottom;
+  }
+  
+  #checklist input[type="checkbox"]:checked::before {
+    animation: check-01 0.4s ease forwards;
+  }
+  
+  #checklist input[type="checkbox"]:checked::after {
+    animation: check-02 0.4s ease forwards;
+  }
+  
+  #checklist input[type="checkbox"]:checked + label {
+    color: var(--disabled);
+    animation: move 0.3s ease 0.1s forwards;
+  }
+  
+  #checklist input[type="checkbox"]:checked + label::before {
+    background: var(--disabled);
+    animation: slice 0.4s ease forwards;
+  }
+  
+  #checklist input[type="checkbox"]:checked + label::after {
+    animation: firework 0.5s ease forwards 0.1s;
+  }
+  
+  @keyframes move {
+    50% {
+      padding-left: 8px;
+      padding-right: 0px;
+    }
+  
+    100% {
+      padding-right: 4px;
+    }
+  }
+  
+  @keyframes slice {
+    60% {
+      width: 100%;
+      left: 4px;
+    }
+  
+    100% {
+      width: 100%;
+      left: -2px;
+      padding-left: 0;
+    }
+  }
+  
+  @keyframes check-01 {
+    0% {
+      width: 4px;
+      top: auto;
+      transform: rotate(0);
+    }
+  
+    50% {
+      width: 0px;
+      top: auto;
+      transform: rotate(0);
+    }
+  
+    51% {
+      width: 0px;
+      top: 8px;
+      transform: rotate(45deg);
+    }
+  
+    100% {
+      width: 5px;
+      top: 8px;
+      transform: rotate(45deg);
+    }
+  }
+  
+  @keyframes check-02 {
+    0% {
+      width: 4px;
+      top: auto;
+      transform: rotate(0);
+    }
+  
+    50% {
+      width: 0px;
+      top: auto;
+      transform: rotate(0);
+    }
+  
+    51% {
+      width: 0px;
+      top: 8px;
+      transform: rotate(-45deg);
+    }
+  
+    100% {
+      width: 10px;
+      top: 8px;
+      transform: rotate(-45deg);
+    }
+  }
+  
+  @keyframes firework {
+    0% {
+      opacity: 1;
+      box-shadow: 0 0 0 -2px #05030d, 0 0 0 -2px #05030d, 0 0 0 -2px #05030d, 0 0 0 -2px #05030d, 0 0 0 -2px #05030d, 0 0 0 -2px #05030d;
+    }
+  
+    30% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+      box-shadow: 0 -15px 0 0px #05030d, 14px -8px 0 0px #05030d, 14px 8px 0 0px #05030d, 0 15px 0 0px #05030d, -14px 8px 0 0px #05030d, -14px -8px 0 0px #05030d;
+    }
+  }
+
+
+</style>
+   
+</head>
+<body>
+<form action="needform" method="post" >
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase">Oganization Needs form</h3>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1m">Organizer name</label>
+                      <input type="text" id="form3Example1m" name="name" class="form-control form-control-lg" />
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1n">Organization name</label>
+                      <input type="text" id="form3Example1n"name="Orgname" class="form-control form-control-lg" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example8">PhoneNumber</label>
+                      <input type="tel" id="form3Example1m1" name="tel" class="form-control form-control-lg"/>
+                  <input type="checkbox"> Enter the same number used in registration form<br>
+                </div><br>
+
+                
+                <div class="form-outline">
+                    <label class="form-label" for="form3Example1n">Organization Strength</label>
+                    <input type="text" placeholder="number of persons" id="form3Example1n"name="lname" class="form-control form-control-lg" />
+                  </div><br><br>
+
+               
+                  <div id="checklist">
+                    <input checked="" value="food" name="r" type="checkbox" id="01">
+                    <label for="01">Food</label>
+                    <input value="Grocery" name="r" type="checkbox" id="02">
+                    <label for="02">Grocery</label>
+                    <input value="Clothes" name="r" type="checkbox" id="03">
+                    <label for="03">Clothes</label>
+                  </div>
+
+                <div class="hide" id="div1">
+                    
+                    <label class="form-label" for="day">Date Needed</label><br>
+                    <input type="date" id="day" name="date" value="0000-00-00" min="2023-01-01" max="2023-12-31" class="form-control form-control-lg" /><br>
+                    
+                </div>
+                <div class="hide" id="div2">
+                    <INPUT type="button" value="Add Item" onclick="addRow('dataTable')" />
+                    <INPUT type="button" value="Delete Item" onclick="deleteRow('dataTable')" /><br><br>
+                    <TABLE id="dataTable" width="350px" border="1">
+                        <TR>
+                            <TD><INPUT type="checkbox" name="chk" /></TD>
+                            <TD><INPUT type="text" name="txt" placeholder="Item type"/></TD>
+                            <TD>
+                                <INPUT type="text" name="txt" placeholder="Quantity"/>
+                            </TD>
+                        </TR>
+                    </TABLE><br>
+                </div>
+                <div class="hide" id="div3"><br>
+                    <INPUT type="button" value="Add Item" onclick="add1('dataTable1')" />
+                    <INPUT type="button" value="Delete Item" onclick="delete1('dataTable1')" /><br><br>
+                    <TABLE id="dataTable1" width="350px" border="1">
+                        <TR>
+                            <TD><INPUT type="checkbox" name="chk" /></TD>
+                            <TD>
+                                <SELECT name="kids">
+                                    <OPTION value="k">kids</OPTION>
+                                    <OPTION value="a">adult</OPTION>
+                                    <OPTION value="y">young</OPTION>
+                                    <OPTION value="o">old</OPTION>
+                                </SELECT>
+                            </TD>
+                            <TD>
+                                <SELECT name="male">
+                                    <OPTION value="in">male</OPTION>
+                                    <OPTION value="de">female</OPTION>
+                                </SELECT>
+                            </TD>
+                            <TD>
+                                <INPUT type="text" name="txt" placeholder="Quantity"/>
+                            </TD>
+                        </TR>
+                    </TABLE><br>
+                <div class="hide" id="div4"><br>
+                    <textarea rows="4" cols="50" placeholder="if any other donations ..please state here" ></textarea>
+                </div><br><br>
+                <label class="form-label" for="form3Example97">Pincode</label>
+                <input type="number" id="form3Example97" name="pin" class="form-control form-control-lg" />
+            </div>
+            <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example90">Address</label>
+                <input type="text" id="form3Example90"  name= "add" class="form-control form-control-lg" />
+               
+            </div>
+            <div class="d-flex justify-content-end pt-3">
+                <button type="button" class="btn btn-light btn-lg">Reset all</button>
+                <button type="submit" class="btn btn-light btn-lg">submit</button>
+            </div>
+          </div>
+        </div>
+     </div>
+    </div>
+</div>
+</form>
+</section>
+
+<script type="text/javascript">
+ 
+ function handleSelection(choice) {
+ //document.getElementById('select').disabled=true;
+ if(choice=='div1')
+ {
+ document.getElementById(choice).style.display="block";
+ document.getElementById('div2').style.display="none";
+ document.getElementById('div3').style.display="none";
+ document.getElementById('div4').style.display="none";
+ }
+ if(choice=='div2')
+ {
+  document.getElementById(choice).style.display="block";
+ document.getElementById('div1').style.display="none";
+ document.getElementById('div3').style.display="none";
+ document.getElementById('div4').style.display="none";
+ }
+ if(choice=='div3'){
+  document.getElementById(choice).style.display="block";
+ document.getElementById('div1').style.display="none";
+ document.getElementById('div2').style.display="none";
+ document.getElementById('div4').style.display="none";
+ 
+ }
+ if(choice=='div4'){
+  document.getElementById(choice).style.display="block";
+ document.getElementById('div1').style.display="none";
+ document.getElementById('div2').style.display="none";
+ document.getElementById('div3').style.display="none";
+ }
+ }
+ var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+function addRow(tableID) {
+
+      var table = document.getElementById(tableID);
+
+      var rowCount = table.rows.length;
+      var row = table.insertRow(rowCount);
+
+      var colCount = table.rows[0].cells.length;
+
+      for(var i=0; i<colCount; i++) {
+
+        var newcell = row.insertCell(i);
+
+        newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+        //alert(newcell.childNodes);
+        switch(newcell.childNodes[0].type) {
+          case "text":
+              newcell.childNodes[0].value = "";
+              break;
+          case "checkbox":
+              newcell.childNodes[0].checked = false;
+              break;
+          case "select-one":
+              newcell.childNodes[0].selectedIndex = 0;
+              break;
+        }
+      }
+    }
+
+    function deleteRow(tableID) {
+      try {
+      var table = document.getElementById(tableID);
+      var rowCount = table.rows.length;
+
+      for(var i=0; i<rowCount; i++) {
+        var row = table.rows[i];
+        var chkbox = row.cells[0].childNodes[0];
+        if(null != chkbox && true == chkbox.checked) {
+          if(rowCount <= 1) {
+            alert("Cannot delete all the rows.");
+            break;
+          }
+          table.deleteRow(i);
+          rowCount--;
+          i--;
+        }
+
+
+      }
+      }catch(e) {
+        alert(e);
+      }
+    }
+    function add1(tableID1) {
+
+      var table = document.getElementById(tableID1);
+
+      var rowCount = table.rows.length;
+      var row = table.insertRow(rowCount);
+
+      var colCount = table.rows[0].cells.length;
+
+      for(var i=0; i<colCount; i++) {
+
+        var newcell = row.insertCell(i);
+
+        newcell.innerHTML = table.rows[0].cells[i].innerHTML;
+        //alert(newcell.childNodes);
+        switch(newcell.childNodes[0].type) {
+          case "text":
+              newcell.childNodes[0].value = "";
+              break;
+          case "checkbox":
+              newcell.childNodes[0].checked = false;
+              break;
+          case "select-one":
+              newcell.childNodes[0].selectedIndex = 0;
+              break;
+        }
+      }
+    }
+    function delete1(tableID1) {
+      try {
+      var table = document.getElementById(tableID1);
+      var rowCount = table.rows.length;
+
+      for(var i=0; i<rowCount; i++) {
+        var row = table.rows[i];
+        var chkbox = row.cells[0].childNodes[0];
+        if(null != chkbox && true == chkbox.checked) {
+          if(rowCount <= 1) {
+            alert("Cannot delete all the rows.");
+            break;
+          }
+          table.deleteRow(i);
+          rowCount--;
+          i--;
+        }
+
+
+      }
+      }catch(e) {
+        alert(e);
+      }
+    }
+
+ </script>
+
+</body>
+</html>

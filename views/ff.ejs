@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+<form action="/n" method="post">
+<body style="background-color:cornsilk;">
+
+    <% marks.forEach((vary)=>{ %>
+        <% var nam= JSON.stringify(vary[0].name)%>
+          <% var number= JSON.stringify(vary[0].number)%>
+          <% var item= JSON.stringify(vary[0].item)%>
+          <% var add= JSON.stringify(vary[0].Address)%>
+          <% var loc= JSON.stringify(vary[0].location)%>
+          <% var tim= JSON.stringify(vary[0].time)%>
+          <% var da= JSON.stringify(vary[0].date)%>
+          <% var p= JSON.stringify(vary[0].pin)%>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">FUND4</h5>
+                  <p class="card-text"><%-"Donorname:"+nam %></p>
+                  <p class="card-text"><%-"Mobilenumber:"+number %></p>
+                  <p class="card-text"><%-"Food Item:"+item %></p>
+                  <p class="card-text"><%-"PickupTime:"+tim%></p>
+                  <p class="card-text"><%-"Pickup date:"+da %></p>
+                  <p class="card-text"><%-"Address:"+add %></p>
+                  <p class="card-text"><%-"Pincode:"+p %></p>
+                  <button type="button" class="btn btn-success">REQUEST</button>
+              </div>
+            </div>
+          </div>
+    <% })%>
+        
+
+
+  </div>
+</form>
+    
+</body>
+</html>

@@ -1,0 +1,94 @@
+<html>
+		<head>
+			<title>Cricket Equipments Store</title>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width" initial-scale=1>
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+		</head>
+		<style>
+			body{
+				background-image: url(cricket.jpg);
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+			div{
+				color: black;
+				text-align: center;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			}
+			img{
+				height: 150px;
+                width: 200px;
+				padding-bottom: 20px;
+			}
+			button{
+				margin-top: 10px;
+			}
+		</style>
+        <body>
+			<div class="container mt-3">
+				<div class="row" >
+					<div class="col-lg-1"><i class="bi bi-list" style="font-size: 2rem;"></i></div>
+					<div class="col-lg-1"><i class="bi bi-house-door-fill" style="font-size: 2rem;"></i></div>
+					<div class="col-lg-8"><h2 class="display-6" style="color:midnightblue;font-weight:500;">Cricket Equipments Store</h2></div>
+					<div class="col-lg-1"><i class="bi bi-person-circle" style="font-size: 2rem;"></i></div>
+					<div class="col-lg-1"><i class="bi bi-cart-fill" style="font-size: 2rem;"></i></div>
+                <div class="row">
+					<div class="col-lg-4 col-md-6 col-sm-12 "><img class="img rounded" src="carck ball 02.jpg"/>
+						<b><br>Pink Cork Ball</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1360/-"><del><small>1530/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Pink Cork Ball">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12 "><img class="img rounded" src="carck ball 01.jpg" >
+						<b><br>Cork Ball</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1500/-"><del><small>1890/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Cork Ball">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="dsc bat.jpg" >
+						<b><br>Dsc Bat</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1899/-"><del><small>2299/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Dsc Bat">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="gm bat.jpg">
+						<b><br>Gm Bat</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1799/-"><del><small>1999/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Gm Bat">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="gm cricket pads.jpg" >
+						<b><br>Gm Cricket Pads</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1649/-"><del><small>1999/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Gm Cricket Pads">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="gm wicket keeper gloves.jpg" >
+						<b><br>Gm Keeping Gloves</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="799/-"><del><small>1350/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Gm Keeping Gloves">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="hot tennis ball.jpg" >
+						<b><br>Hot Tennis Ball</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="150/-"><del><small>170/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Hot Tennis Ball">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="sg cricket pads.jpg">
+						<b><br>SG Cricket Pads</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1900/-"><del><small>2290/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="SG Cricket Pads">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="new balance bat.jpg">
+						<b><br>New Balance Bat</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1999/-"><del><small>2399/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="New Balance Cricket Bat">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+                    <div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="sg hand gloves.jpg" >
+						<b><br>Hand Gloves</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1250/-"><del><small>1399/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Hand Gloves">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img rounded" src="helmet.jpg">
+						<b><br>Helmet</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="999/-"><del><small>1199/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="Helmet">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-12"><img class="img roundbtn btn-successed" src="ss bat.jpg">
+						<b><br>SS Bat</b><br>
+						<form action="addedToCart" method="GET"><input type="text" style="width:65px; font-weight:bold;" name="cost" value="1150/-"><del><small>1550/-</small></del><br><button type="submit" class="btn btn-success" name="item" value="SS Bat">ADD TO CART <i class="bi bi-cart4"></i></button></form>
+					</div>
+                </div><br><br>
+				<form action="cart" method="GET">
+					<center><input type="submit" class="btn btn-warning" style="width:30%;font-weight: bold; color: black;" value="GO TO CART"></center>
+				</form><br><br>
+            </div>
+		</body>
+</html>

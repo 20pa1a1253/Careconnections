@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+  body{
+    background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  }
+  ul.nav {
+    margin:0;
+    padding:0;
+    list-style:none;
+    height:36px; line-height:36px;
+    background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:13px;
+    border-radius: 10px;
+}
+ul.nav li {
+    border-right:1px solid #189b80; /* you can change the border color matching to your background color */
+    float:right;
+}
+ul.nav a {
+    display:block;
+    padding:0 28px;
+    color:ghostwhite;
+    text-decoration:none;
+}
+hr{
+  position: relative;
+        top: 10px;
+        border: none;
+        margin-left: 150px;
+        margin-right: 150px;
+        height: 8px;
+        background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border-radius: 10px;
+
+
+        margin-bottom: 30px;
+}.card {
+  width: 19em;
+  height: 34em;
+  background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+transition: 1s ease-in-out;
+  clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.card span {
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  display: block;
+  font-size: 1em;
+}
+
+.card .info {
+  font-weight: 400;
+  color: white;
+  display: block;
+  text-align: center;
+  font-size: 0.72em;
+  margin: 1em;
+}
+
+.card .img {
+  width: 4.8em;
+  height: 4.8em;
+  background: white;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.card .share {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.card a {
+  color: white;
+  transition: .4s ease-in-out;
+}
+
+.card a:hover {
+  color: red;
+}
+
+.card button {
+  padding: 0.8em 1.7em;
+  display: block;
+  margin: auto;
+  border-radius: 25px;
+  border: none;
+  font-weight: bold;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  transition: .4s ease-in-out;
+}
+
+.card button:hover {
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+.avatar {
+  vertical-align: middle;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+ 
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+<form action="accept" method="post"> 
+ 
+   <ul class="nav">
+
+     <li><a href="#">Contact</a></li>
+     <li><a href="#">Services</a></li>
+     <li><a href="#">Abouts</a></li>
+     <li><a href="#">Home</a></li>
+   </ul>
+</div>
+<h1 align="center" style=" font-family:Arial, Helvetica, sans-serif; color: #232526;  /* fallback for old browsers */
+">FOOD FUNDS AVAILABLE</h1>
+<hr>
+<% marks.forEach((vary)=>{ %>
+  <% var nam= JSON.stringify(vary[0].name)%>
+    <% var number= JSON.stringify(vary[0].number)%>
+    <% var item= JSON.stringify(vary[0].item)%>
+    <% var add= JSON.stringify(vary[0].Address)%>
+    <% var loc= JSON.stringify(vary[0].location)%>
+    <% var tim= JSON.stringify(vary[0].time)%>
+    <% var da= JSON.stringify(vary[0].date)%>
+    <% var p= JSON.stringify(vary[0]. Pincode)%>
+    <input type="hidden" name="nam" value="<%= nam %>">
+  <input type="hidden" name="item" value="<%= item %>">
+  <input type="hidden" name="number" value="<%= number %>">
+  <input type="hidden" name="loc" value="<%= loc %>">
+  <input type="hidden" name="tim" value="<%= tim %>">
+  <input type="hidden" name="add" value="<%= add %>">
+  <input type="hidden" name="da" value="<%= da %>">
+   
+    <div class="card">
+      <div class="img">
+        <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
+      </div>
+      <span><b>Donor</b></span>
+      <p style="color: whitesmoke; padding-left: 20px;" ><b><%-"Donorname:"+nam %></b> </p>
+      <p style="color: whitesmoke; padding-left: 20px;"><%-"Mobilenumber:"+number %></p>
+      <p style="color: whitesmoke;padding-left: 20px;"><%-"Food Item:"+item %></p>
+      <p style="color: whitesmoke; padding-left: 20px;" ><%-"PickupTime:"+tim%></p>
+      <p style="color: whitesmoke; padding-left: 20px;"><%-"Pickup date:"+da %></p>
+      <p style="color: whitesmoke;padding-left: 20px;"><%-"Address:"+add %></p>
+      <p style="color: whitesmoke;padding-left: 20px;"><%-"Pincode:"+p %></p>
+    
+      <div class="share">
+        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+       
+        </svg></a>
+        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+     
+      </svg></a>
+        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+     
+      </svg></a>
+      <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+     
+      </svg></a>
+      </div>
+      <button id="myButton" type="submit">Request</button>
+    </div>
+  </div>
+  <% })%>
+  
+  
+</form> 
+<script>
+  const myButton = document.getElementById("myButton");
+  myButton.addEventListener("click", function() {
+    alert("request has been sent ");
+});
+</script>
+
+</body>
+</html>
+
