@@ -139,7 +139,7 @@ transition: 1s ease-in-out;
 </style>
 </head>
 <body>
-<form action="accept" method="post">
+<form action="/req" method="post">
  
    <ul class="nav">
 
@@ -150,30 +150,28 @@ transition: 1s ease-in-out;
    </ul>
 </div>
 <h1 align="center" style=" font-family:Arial, Helvetica, sans-serif; color: #232526;  /* fallback for old browsers */
-"> OTHER FUNDS AVAILABLE</h1>
+">DONOR PROFILE</h1>
 <hr>
-<% marks.forEach((vary)=>{ %>
-  <% var nam= JSON.stringify(vary[0].name)%>
-    <% var number= JSON.stringify(vary[0].number)%>
-    <% var item= JSON.stringify(vary[0].item)%>
-    <% var add= JSON.stringify(vary[0].Address)%>
-    <% var loc= JSON.stringify(vary[0].location)%>
-    <% var tim= JSON.stringify(vary[0].time)%>
-    <% var da= JSON.stringify(vary[0].date)%>
-    <% var p= JSON.stringify(vary[0].pin)%>
-    <div class="column">
+
+  
     <div class="card">
       <div class="img">
         <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
       </div>
-      <span>Profile</span>
-      <p style="color: whitesmoke; padding-left: 20px;" > <%-"Donorname:"+nam %></p>
-      <p style="color: whitesmoke; padding-left: 20px;"><%-"Mobilenumber:"+number %></p>
-      <p style="color: whitesmoke;padding-left: 20px;"><%-"the Item which is meant to donate:"+item %></p>
-      <p style="color: whitesmoke; padding-left: 20px;" ><%-"PickupTime:"+tim%></p>
-      <p style="color: whitesmoke; padding-left: 20px;"><%-"Pickup date:"+da %></p>
-      <p style="color: whitesmoke;padding-left: 20px;"><%-"Address:"+add %></p>
-      <p style="color: whitesmoke;padding-left: 20px;"><%-"Pincode:"+p %></p>
+      <span>DONOR</span>
+    <% user.forEach((user) => { %>
+        <% var nam = JSON.stringify(user.donar) %>
+        <% var useremail = JSON.stringify(user.email) %>
+        <% var number= JSON.stringify(user.phonenum)%>
+        <% var add= JSON.stringify(user.address)%>
+        <% var pin= JSON.stringify(user.pincode)%>
+        <p style="color: whitesmoke; padding-left: 20px;" ><b><%-"Donorname:"+nam %></b> </p>
+        <p style="color: whitesmoke; padding-left: 20px;"><%-"Mobilenumber:"+number %></p>
+        <p style="color: whitesmoke;padding-left: 20px;"><%-"Address:"+add %></p>
+        <p style="color: whitesmoke;padding-left: 20px;"><%-"Pincode:"+pin %></p>
+      
+    <% }) %>
+      
     
       <div class="share">
         <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -189,18 +187,15 @@ transition: 1s ease-in-out;
      
       </svg></a>
       </div>
-      <button id="myButton" type="submit">Request</button>
     </div>
-  </div>
-  </div>
-  <% })%>
-  <script>
-    const myButton = document.getElementById("myButton");
-    myButton.addEventListener("click", function() {
-      alert("request has been sent ");
-  });
-  </script>
+   </div>
 </form>
+<script>
+  const myButton = document.getElementById("myButton");
+  myButton.addEventListener("click", function() {
+    alert("Thankyou for accepting!");
+});
+</script>
 </body>
 </html>
 

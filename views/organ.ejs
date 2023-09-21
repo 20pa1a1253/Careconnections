@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- Theme Made By www.w3schools.com -->
-  <title>Bootstrap Theme Company Page</title>
+  <title>CareConnetions </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -31,12 +31,14 @@
     margin-bottom: 30px;
   }  
   .jumbotron {
-    background-color: #f4511e;
-    background-image: url("it.jpg");
-    color: #fff;
-    padding: 100px 25px;
-    font-family: Montserrat, sans-serif;
-  }
+  background-color: #f4511e;
+  background-image: url('https://d1vdjc70h9nzd9.cloudfront.net/media/campaign/35000/35955/image/ee98029af2c64cd16bce30c34b446c5cfafb9964.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 100px 25px;
+  font-family: Montserrat, sans-serif;
+}
   .container-fluid {
     padding: 60px 50px;
   }
@@ -44,11 +46,11 @@
     background-color: #f6f6f6;
   }
   .logo-small {
-    color: #f4511e;
+    color: black;
     font-size: 50px;
   }
   .logo {
-    color: #f4511e;
+    color: black;
     font-size: 200px;
   }
   .thumbnail {
@@ -234,14 +236,14 @@
  color: whitesmoke;
 }
 
-/*Text*/
+/Text/
 .text-title {
  font-size: 1.5em;
  font-weight: bold;
  color: whitesmoke;
 }
 
-/*Hover*/
+/Hover/
 .card:hover {
  border-color: #008bf8;
  box-shadow: 0 5px 18px 0 black;
@@ -272,12 +274,14 @@
       
       
     </div>
+    <% var nam = mark.organiser %>
+    <% var email= mark.email%>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#services">PLACE NEEDS</a></li>
         <li><a href="#portfolio">AVALIABLE</a></li>
-  
+        <li><a href="/P/<%=email %>">PROFILE</a></li>
         <li><a href="#contact">CONTACT</a></li>
       </ul>
     </div>
@@ -285,8 +289,11 @@
 </nav>
 
 <div class="jumbotron text-center">
+        <h2 style="color: whitesmoke; padding-left: 20px;"><%- "Welcome, dear organiser " + nam %></h2><br>
+    
+  
   <h1>Organizations</h1> 
-  <p>Welcome to World of Donations</p> 
+  <p>Welcome to World of Organizations</p> 
   <form>
     <div class="input-group">
       <input type="email" class="form-control" size="50" placeholder="FeedBack" required>
@@ -301,7 +308,7 @@
 <div id="about" class="container-fluid">
   <div class="row">
     <div class="col-sm-8">
-      <h2>About Donations</h2><br>
+      <h2>About Organizations</h2><br>
       <h4>Donation is a voluntary act of giving money, goods, or services to a person or organization without expecting anything in return. Donations can be made to a variety of causes, such as charitable organizations, educational institutions, religious organizations, medical research foundations, disaster relief efforts, and more.</h4>.</h4><br>
       <p>Donations play a vital role in supporting non-profit organizations and their activities, as well as helping those in need. By making a donation, individuals can contribute to making a positive impact on society, supporting important causes and organizations, and improving the lives of others..</p>
       <br><button class="btn btn-default btn-lg">Get in Touch</button>

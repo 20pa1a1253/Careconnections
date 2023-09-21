@@ -126,6 +126,11 @@ transition: 1s ease-in-out;
   border-radius: 50%;
  
 }
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
 
 
 
@@ -158,6 +163,7 @@ transition: 1s ease-in-out;
     <% var tim= JSON.stringify(vary[0].time)%>
     <% var da= JSON.stringify(vary[0].date)%>
     <% var p= JSON.stringify(vary[0].pin)%>
+   <div class="column">
     <div class="card">
       <div class="img">
         <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
@@ -186,17 +192,15 @@ transition: 1s ease-in-out;
      
       </svg></a>
       </div>
-      <button id="myButton" type="submit">Request</button>
+      <a href="/request"><button id="myButton" type="submit">Request</button></a>
     </div>
+  </div>
   </div>
   <% })%>
   
 </form>
 <script>
-  const myButton = document.getElementById("myButton");
-  myButton.addEventListener("click", function() {
-    alert("request has been sent ");
-});
+  
 </script>
 </body>
 </html>

@@ -126,6 +126,11 @@ transition: 1s ease-in-out;
   border-radius: 50%;
  
 }
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
 
 
 
@@ -147,53 +152,40 @@ transition: 1s ease-in-out;
 <h1 align="center" style=" font-family:Arial, Helvetica, sans-serif; color: #232526;  /* fallback for old browsers */
 ">NEEDS AVAILABLE</h1>
 <hr>
-<% marks.forEach((vary)=>{ %>
-  <% var onam= JSON.stringify(vary[0].organ)%>
-  <% var ornam= JSON.stringify(vary[0].name)%>
-    <% var number= JSON.stringify(vary[0].number)%>
-    <% var cat1= JSON.stringify(vary[0].category1)%>
-    <% var cat2= JSON.stringify(vary[0].category2)%>
-    <% var add= JSON.stringify(vary[0].Address)%>
-    <% var str= JSON.stringify(vary[0].strength)%>
-    
-    <div class="card">
-      <div class="img">
-        <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
+<!-- <% marks.forEach((vary)=>{ %> -->
+  <% for (var i = 0; i < marks.length; i++) { %>
+    <% const innerArray = marks[i]; %>
+    <% for (var j = 0; j < innerArray.length; j++) { %>
+      <% const element = innerArray[j]; %>
+      <div class="column">
+        <div class="card">
+          <div class="img">
+            <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
+          </div>
+          <span>Profile</span>
+          <p style="color: whitesmoke; padding-left: 20px;">Organisation: <%= element.organ %></p>
+          <p style="color: whitesmoke; padding-left: 20px;">Organiser: <%= element.name %></p>
+          <p style="color: whitesmoke; padding-left: 20px;">Mobilenumber: <%= element.number %></p>
+          <p style="color: whitesmoke; padding-left: 20px;">Category1: <%= element.category1 %></p>
+          <p style="color: whitesmoke; padding-left: 20px;">Category2: <%= element.category2 %></p>
+          <p style="color: whitesmoke; padding-left: 20px;">Strength: <%= element.strength %></p>
+          <p style="color: whitesmoke; padding-left: 20px;">Address: <%= element.Address %></p>
+          <div class="share">
+            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16"></svg></a>
+            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16"></svg></a>
+            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16"></svg></a>
+            <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16"></svg></a>
+          </div>
+          <button id="myButton" type="submit">Accept</button>
+        </div>
       </div>
-      <span>Profile</span>
-      <p style="color: whitesmoke; padding-left: 20px;" > <%-"Organisation:"+onam %></p>
-      <p style="color: whitesmoke; padding-left: 20px;" > <%-"Organiser:"+ornam %></p>
-      <p style="color: whitesmoke; padding-left: 20px;"><%-"Mobilenumber:"+number %></p>
-      <p style="color: whitesmoke;padding-left: 20px;"><%-"Category1:"+cat1 %></p>
-      <p style="color: whitesmoke;padding-left: 20px;"><%-"Category2:"+cat2 %></p>
-      <p style="color: whitesmoke;padding-left: 20px;"><%-"Strenght:"+str %></p>
-      <p style="color: whitesmoke;padding-left: 20px;"><%-"Address:"+add %></p>
-      
-    
-      <div class="share">
-        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-       
-        </svg></a>
-        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-     
-      </svg></a>
-        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-     
-      </svg></a>
-      <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-     
-      </svg></a>
-      </div>
-      <button id="myButton" type="submit">Accept</button>
-    </div>
-  </div>
-  <% })%>
+    <% } %>
+  <% } %>
+  
+<!-- <% })%> -->
 </form>
 <script>
-  const myButton = document.getElementById("myButton");
-  myButton.addEventListener("click", function() {
-    alert("Thankyou for accepting!");
-});
+  
 </script>
 </body>
 </html>
