@@ -67,6 +67,7 @@ const need= async(request,response)=>{
         response.render("needs",{ marks: datax});
         console.log("this is datax")
         console.log(datax);
+		console.log(datax.length);
 }
 
 
