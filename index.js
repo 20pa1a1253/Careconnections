@@ -90,19 +90,12 @@ app.post("/fo",(req,res)=>{
 	res.render("fundforms");
 });
 //donor needs form
-app.post('/acc', function(req, res) {
-	res.render("models");
+app.get('/acc', function(req, res) {
+	const recipientNumber = req.query.number;
+	const mg=req.query.msg;
+	// You can use recipientNumber in your route logic
+	res.send("Recipient Number: " + recipientNumber +"Message:"+mg);
 	
-// 	const data = req.body;
-// var m="Thanks! for accepting,we will connect you with them shortly";
- 	// res.send(`<script>alert("${m}"); window.history.go(-1);</script>`);
-	// Process the data as needed
-	// console.log('Received data:', data
-
-  
-	// Respond to the client
-	// res.json({ message: 'Data received on the server' });
-	// Perform your actions using the data
   });
 
 app.get("/login",(req,res)=>{
