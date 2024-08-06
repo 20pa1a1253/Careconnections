@@ -151,83 +151,62 @@
 </style>
 </head>
 <body>
-  <ul class="nav">
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Home</a></li>
-  </ul>
 
-  <h1 align="center" style="font-family: Arial, Helvetica, sans-serif; color: #232526;">NEEDS AVAILABLE</h1>
+  <h1 align="center" style="font-family: Arial, Helvetica, sans-serif; color: #232526;">DONATIONS AVAILABLE</h1>
   <hr>
-  <% if (marks[0].need === 'Food') { %>
-    <% marks.forEach((need, i) => { %>
-      <div class="column">
-        <div class="card">
-          <div class="img">
-            <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
-          </div>
-          <span>Profile</span>
-  
-          <p style="color: whitesmoke; padding-left: 20px;">Name: <%= need.name %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Mobile Number: <%= need.number %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Items: <%= need.item.join(', ') %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Food Type: <%= need.type %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Date: <%= need.date %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Location: <%= need.location %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Time: <%= need.time %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Status: <%= need.status %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">NeedId: <%= need.needId %></p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-card-index="<%= i %>" number="<%= need.number %>" id="myButton">Accept</button>
-        </div>
-      </div>
-    <% }); %>
-    <% } else if(marks[0].need === 'Clothes') { %>
-      <% marks.forEach((need, i) => { %>
+  <% if (marks && marks.length > 0) { %>
+    <% if (marks[0].Donation === 'Food') { %>
+      <% marks.forEach((Donation, i) => { %>
         <div class="column">
           <div class="card">
-            <div class="img">
-              <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
-            </div>
+            
             <span>Profile</span>
-    
-            <p style="color: whitesmoke; padding-left: 20px;">Name: <%= need.name %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">Mobile Number: <%= need.number %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">Category:<%= need.category.join(', ') %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">Gender:<%= need.gender.join(', ') %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">Quantities: <%= need.quantity.join(', ') %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">Date: <%= need.date %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">Location: <%= need.location %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">Time: <%= need.time %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">Status: <%= need.status %></p>
-            <p style="color: whitesmoke; padding-left: 20px;">NeedId: <%= need.needId %></p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-card-index="<%= i %>" number="<%= need.number %>" id="myButton">Accept</button>
+            <p style="color: whitesmoke; padding-left: 20px;">Mobile Number: <%= Donation.number %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Items: <%= Donation.item.join(', ') %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Food Type: <%= Donation.type %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Date: <%= Donation.date %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Location: <%= Donation.location %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Time: <%= Donation.time %></p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-card-index="<%= i %>" number="<%= Donation.number %>" id="myButton">Request</button>
           </div>
         </div>
       <% }); %>
-  <% }else if(marks[0].need === 'Groceries') { %>
-    <% marks.forEach((need, i) => { %>
-      <div class="column">
-        <div class="card">
-          <div class="img">
-            <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
+    <% } else if (marks[0].Donation === 'Clothes') { %>
+      <% marks.forEach((Donation, i) => { %>
+        <div class="column">
+          <div class="card">
+            <span>Profile</span>
+            <p style="color: whitesmoke; padding-left: 20px;">Mobile Number: <%= Donation.number %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Category: <%= Donation.category.join(', ') %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Gender: <%= Donation.gender.join(', ') %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Quantities: <%= Donation.quantity.join(', ') %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Date: <%= Donation.date %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Location: <%= Donation.location %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Time: <%= Donation.time %></p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-card-index="<%= i %>" number="<%= Donation.number %>" id="myButton">Request</button>
           </div>
-          <span>Profile</span>
-  
-          <p style="color: whitesmoke; padding-left: 20px;">Name: <%= need.name %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Mobile Number: <%= need.number %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Items: <%= need.item.join(', ') %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Quantities: <%= need.quantity.join(', ') %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Date: <%= need.date %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Location: <%= need.location %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Time: <%= need.time %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">Status: <%= need.status %></p>
-          <p style="color: whitesmoke; padding-left: 20px;">NeedId: <%= need.needId %></p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-card-index="<%= i %>" number="<%= need.number %>" id="myButton">Accept</button>
         </div>
-      </div>
-    <% }); %>
-  
+      <% }); %>
+    <% } else if (marks[0].Donation === 'Groceries') { %>
+      <% marks.forEach((Donation, i) => { %>
+        <div class="column">
+          <div class="card">
+            <span>Profile</span>
+            <p style="color: whitesmoke; padding-left: 20px;">Mobile Number: <%= Donation.number %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Items: <%= Donation.item.join(', ') %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Quantities: <%= Donation.quantity.join(', ') %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Date: <%= Donation.date %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Location: <%= Donation.location %></p>
+            <p style="color: whitesmoke; padding-left: 20px;">Time: <%= Donation.time %></p>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-card-index="<%= i %>" number="<%= Donation.number %>" id="myButton">Request</button>
+          </div>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <h2>There are no funds of this type placed by Donors</h2>
+    <% } %>
+  <% } else { %>
+    <h2 style="text-align: center;">There are no funds placed by Donors</h2>
   <% } %>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

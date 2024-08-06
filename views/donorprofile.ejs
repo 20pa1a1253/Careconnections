@@ -1,200 +1,248 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-  body{
-    background: #ECE9E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  <title><%= user.fullName %> - Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+      body {
+          background-color: rgb(255, 253, 251); /* Adjust the color and thickness as needed */
+          margin: 0; /* Remove default margin to ensure the border is flush with the viewport edges */
+          padding: 0;
+          box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+      }
+      #profileTabs {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 1rem; /* Adjust spacing as needed */
+          margin-top: 1rem;
+      }
 
-  }
-  ul.nav {
-    margin:0;
-    padding:0;
-    list-style:none;
-    height:36px; line-height:36px;
-    background: #232526;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      .nav-item {
+          margin: 0 0.5rem; /* Adjust spacing between nav items */
+      }
 
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:13px;
-    border-radius: 10px;
-}
-ul.nav li {
-    border-right:1px solid #189b80; /* you can change the border color matching to your background color */
-    float:right;
-}
-ul.nav a {
-    display:block;
-    padding:0 28px;
-    color:ghostwhite;
-    text-decoration:none;
-}
-hr{
-  position: relative;
-        top: 10px;
-        border: none;
-        margin-left: 150px;
-        margin-right: 150px;
-        height: 8px;
-        background: #232526;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-border-radius: 10px;
+      .nav-link {
+          text-align: center; /* Center text inside nav links */
+      }
+      .nav-tabs .nav-link.active {
+          background-color: coral; /* Customize active tab color */
+          color: #fff;
+          
+      }
+      .about{
+          display: flex;
+          flex-flow: row wrap;
+          column-gap: 0cap;
+      }
+      .breadcrumb-item + .breadcrumb-item::before {
+          content: '>';
+      }
+      .card {
+          margin-bottom: 20px;
+          border-radius: 20px;
+          border-color: rgb(214, 94, 8);
+      }
+      #about-card .card-body p {
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+      }
+      .card-body p{
+          text-align: center;
+          margin-bottom: 0.5rem;
+      }
 
+      .card-title{
+          text-align: center;
+      }
+      /* Style for the specific card with ID 'about-card' */
+      #about-card {
+          width:100cap;
+          max-width: 500px;
+          margin: auto;
+          padding: 1rem;
+          padding-bottom: 20px;
+          box-shadow: 0 4px 8px rgba(227, 148, 89, 0.1);
+          border-radius: 8px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+      }
 
-        margin-bottom: 30px;
-}.card {
-  width: 19em;
-  height: 34em;
-  background: #232526;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      /* Style for the card body inside the specific card */
+      #about-card .card-body {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          padding: 0.3rem;
+      }
 
-transition: 1s ease-in-out;
-  clip-path: polygon(30px 0%, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0% 30px);
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-}
+      /* Style for the content section inside the specific card */
+      .about-content {
+          display: flex;
+          align-items: flex-start;
+          width: 100%;
+      }
 
-.card span {
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  display: block;
-  font-size: 1em;
-}
+      /* Style for the profile image section */
+      .profile-image {
+          flex: 0 0 auto;
+          margin-right: 20px;
+      }
 
-.card .info {
-  font-weight: 400;
-  color: white;
-  display: block;
-  text-align: center;
-  font-size: 0.72em;
-  margin: 1em;
-}
+      /* Style for the profile image */
+      .profile-img {
+          width: 180px;
+          border-radius: 50%;
+          object-fit: cover;
+      }
 
-.card .img {
-  width: 4.8em;
-  height: 4.8em;
-  background: white;
-  border-radius: 15px;
-  margin: auto;
-}
+      /* Style for the profile information section */
+      .profile-info {
+          flex: 1 1 auto;
+      }
 
-.card .share {
-  margin-top: 1em;
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-}
+      /* Style for the card title inside the specific card */
+      #about-card .card-title {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+          text-align: center;
+      }
 
-.card a {
-  color: white;
-  transition: .4s ease-in-out;
-}
+      /* Style for the paragraphs inside the specific card */
+      
 
-.card a:hover {
-  color: red;
-}
+      /* Style for the button inside the specific card */
+      #about-card .btn-primary {
+          padding: 0.5rem 1rem;
+          font-size: 1rem;
+          background-color: coral;
+      }
+      .profile-head{
+          text-align: center  ;
+          padding-bottom: 30px;
+      }
 
-.card button {
-  padding: 0.8em 1.7em;
-  display: block;
-  margin: auto;
-  border-radius: 25px;
-  border: none;
-  font-weight: bold;
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  transition: .4s ease-in-out;
-}
-
-.card button:hover {
-  background: red;
-  color: white;
-  cursor: pointer;
-}
-.avatar {
-  vertical-align: middle;
-  width: 78px;
-  height: 78px;
-  border-radius: 50%;
- 
-}
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-}
-
-
-
-
-
-</style>
+  </style>
 </head>
 <body>
-<form action="/opedit" method="post">
- 
-   <ul class="nav">
-
-     <li><a href="#">Contact</a></li>
-     <li><a href="#">Services</a></li>
-     <li><a href="#">Abouts</a></li>
-     <li><a href="#">Home</a></li>
-   </ul>
-</div>
-<h1 align="center" style=" font-family:Arial, Helvetica, sans-serif; color: #232526;  /* fallback for old browsers */
-">DONOR PROFILE</h1>
-<hr>
-
-  
-    <div class="card">
-      <div class="img">
-        <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="Avatar" class="avatar">
+    <div class="container mt-5">
+      <div class="profile-head">
+        <h2><%= user.fullName %>'s Profile</h2>
       </div>
-      <span>DONOR</span>
-    <% user.forEach((user) => { %>
-        <% var nam = JSON.stringify(user.donar) %>
-        <% var useremail = JSON.stringify(user.email) %>
-        <% var number= JSON.stringify(user.phonenum)%>
-        <% var add= JSON.stringify(user.address)%>
-        <% var pin= JSON.stringify(user.pincode)%>
-        <p style="color: whitesmoke; padding-left: 20px;" ><b><%-"Donorname:"+nam %></b> </p>
-        <p style="color: whitesmoke; padding-left: 20px;"><%-"Mobilenumber:"+number %></p>
-        <p style="color: whitesmoke;padding-left: 20px;"><%-"Address:"+add %></p>
-        <p style="color: whitesmoke;padding-left: 20px;"><%-"Pincode:"+pin %></p>
-      
-    <% }) %>
-      
-    
-      <div class="share">
-        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-       
-        </svg></a>
-        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-     
-      </svg></a>
-        <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-     
-      </svg></a>
-      <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
-     
-      </svg></a>
-    </svg></a>
-     <a href="#edit"><button id="myButton" type="submit">EDIT</button></a>
+  
+      <!-- Personal Information Section --> 
+      <div class="col-md-4">
+        <div class="card" id="about-card">
+          <div class="card-body" id="about">
+            <h3 class="card-title">ABOUT</h3>
+            <div class="about-content">
+              <div class="profile-image">
+                <img src="<%= user.profilePhotoUrl ? user.profilePhotoUrl : 'public/—Pngtree—default male avatar_5939655.png' %>" class="profile-img" alt="Profile Photo">
+              </div>
+              <div class="profile-info">
+                <p><strong>User Name:</strong> <%= user.fullName %></p>
+                <p><strong>Mobile Number:</strong> <%= user.phoneNumber %></p>
+                <p><strong>Email address:</strong> <%= user.email %></p>
+                <p><strong>PANCARD:</strong> <%= user.PANCARD_NUMBER %></p>
+                <p><strong>Adhar Number:</strong> <%= user.AdharNumber %></p>
+                <p><strong>Address:</strong> <%= user.address %></p>
+                <p><strong>Pincode:</strong> <%= user.Pincode %></p>
+                <a class="btn btn-primary" href="#" role="button">Message</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <ul class="nav nav-tabs mb-4" id="profileTabs">
+        <li class="nav-item">
+          <a class="nav-link active" id="organisation-tab" href="#">Donations Activity</a>
+        </li>
+      </ul>
+  
+      <div id="activity" class="content-section">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">Donations</h3>
+            <% if (donations.food.length > 0 ||  donations.groceries.length > 0 ||donations.clothes.length > 0 || donations.others.length > 0){ %>
+              <% if (donations.food.length > 0) { %>
+                <h4>Food donations</h4>
+                <% donations.food.forEach(item => { %>
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active" aria-current="page"><%= item.item[0] %></li>
+                      <li class="breadcrumb-item">Donation Id: <%= item.DonationId %></li>
+                      <li class="breadcrumb-item">Status: <%= item.status %></li>
+                      <% if (item.usedby != "") { %>
+                        <li class="breadcrumb-item">Used By: <%= item.usedby %></li>
+                      <% } %>
+                      <li class="breadcrumb-item"><a href="#">view more</a></li>
+                    </ol>
+                  </nav>
+                <% }); %>
+              <% } %>
+  
+              <% if (donations.clothes.length > 0) { %>
+                <h4>Clothing donations</h4>
+                <% donations.clothes.forEach(item => { %>
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active" aria-current="page"><%= item.item[1] %></li>
+                      <li class="breadcrumb-item">Donation Id: <%= item.DonationId %></li>
+                      <li class="breadcrumb-item">Status: <%= item.status %></li>
+                      <% if (item.usedby != "") { %>
+                        <li class="breadcrumb-item">Used By: <%= item.usedby %></li>
+                      <% } %>
+                      <li class="breadcrumb-item"><a href="#">view more</a></li>
+                    </ol>
+                  </nav>
+                <% }); %>
+              <% } %>
+  
+              <% if (donations.groceries.length > 0) { %>
+                <h4>Groceries donations</h4>
+                <% donations.groceries.forEach(item => { %>
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active" aria-current="page"><%= item.item[1] %></li>
+                      <li class="breadcrumb-item">Donation Id: <%= item.DonationId %></li>
+                      <li class="breadcrumb-item">Status: <%= item.status %></li>
+                      <% if (item.usedby != "") { %>
+                        <li class="breadcrumb-item">Used By: <%= item.usedby %></li>
+                      <% } %>
+                      <li class="breadcrumb-item"><a href="#">view more</a></li>
+                    </ol>
+                  </nav>
+                <% }); %>
+              <% } %>
+  
+              <% if (donations.others.length > 0) { %>
+                <h4>Other donations</h4>
+                <% donations.others.forEach(item => { %>
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active" aria-current="page"><%= item.item %></li>
+                      <li class="breadcrumb-item">Donation Id: <%= item.DonationId %></li>
+                      <li class="breadcrumb-item">Status: <%= item.status %></li>
+                      <% if (item.usedby != "") { %>
+                        <li class="breadcrumb-item">Used By: <%= item.usedby %></li>
+                      <% } %>
+                      <li class="breadcrumb-item"><a href="#">view more</a></li>
+                    </ol>
+                  </nav>
+                <% }); %>
+              <% } %>
+            <% } else { %>
+              <p>No donations placed yet</p>
+            <% } %>
+          </div>
+        </div>
       </div>
     </div>
-   </div>
-</form>
-<script>
+    <script>
+      // Add any necessary JavaScript here
+    </script>
+  </body>
   
-</script>
-</body>
 </html>
 

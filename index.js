@@ -6,85 +6,89 @@ const http = require('http');
 const app = express();
 app.use(bodyParser.urlencoded({extended:true}))
 const port = 3000;
+const session = require('express-session');
+const sessionMiddleware = require('./controllers/sessiondata'); 
+const fs = require('fs');
+const crypto = require('crypto');
+require('dotenv').config();
+
+const secret = crypto.randomBytes(32).toString('base64');
+const envFile = '.env';
+
+fs.appendFile(envFile, `SESSION_SECRET=${secret}\n`, (err) => {
+  if (err) throw err;
+  console.log('SESSION_SECRET updated in .env file');
+});
+app.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: false,
+	saveUninitialized: true,
+	cookie: { secure: false } // Set `secure: true` if you're using HTTPS
+  }));
 app.set("view engine","ejs");
 app.use(express.static('public'));
 
-app.use((req, res, next) => {
-	
-	//  res.setHeader('Cache-Control', 'no-store, must-revalidate, max-age=0');
-	res.setHeader('X-Content-Type-Options', 'nosniff');
-	// res.setHeader('Content-Security-Policy', "script-src 'self' https://trusted-cdn.com");
 
-	// Other common headers...
+app.use((req, res, next) => {
+	res.setHeader('X-Content-Type-Options', 'nosniff');
+	
 	next();
   });
-  
+  const loginRoutes = require('./routes/loginroute');
+  const dr = require('./routes/registerroute');
+  const or = require('./routes/registerroute');
+  const profiles = require('./routes/profileroute');
+
+ app.use(sessionMiddleware) ;
 app.get("/",(req,res)=>{
 	res.render('main');
 });
 app.post("/main",(req,res)=>{
 	res.render("ss");
 });
-const firebase = require('./models/firebase');
+app.use(express.static('public'));
+
+const firebase = require('./models/firebase'); 
 app.post("/needfor",(req,res)=>{
 	res.render("needform");
 });
 // routes for signup,login
+app.use(loginRoutes);
 const l = require('./routes/loginroute');
 app.post('/loginsubmit', l);
-app.post('/signupsubmit',l);
+//app.post('/signupsubmit',l);
 //routes for donor registrations
-app.post("/donorReg.ejs",(req,res)=>{
+app.post("/donorReg",(req,res)=>{
 	res.render("donorReg");
 });
-const dr = require('./routes/registerroute');
-app.post("/dr",dr);
+app.use(dr);
+
 // routes for organiser registrations
-app.get("/organReg.ejs",(req,res)=>{
+app.get("/organReg",(req,res)=>{
 	res.render("organReg");
 });
-const or = require('./routes/registerroute');
-app.post("/or",or);
+app.use(or);
 // routes for donor and organiser profile pages
-const p = require('./routes/profileroute');
-app.get('/profile/:useremail',p);
-app.get('/P/:email',p);
+app.use(profiles);
 app.post('/opedit', function(req, res) {
 	var m="Edit option will be available soon";
 	res.send(`<script>alert("${m}"); window.history.go(-2);</script>`);
 });
 //needcollection
 const needf = require('./routes/needroute');
-app.post("/needform",needf);
-app.get("/ned",needf);
+app.use(needf);
 //funds list form
 const fundf = require('./routes/fundroute');
-app.post("/form",fundf);
-// food funds
-app.get("/fun",fundf);
-// cloth funds
-app.get("/fun1",fundf);
-// other funds
-app.get("/fun2",fundf)
+app.use(fundf);
 
 app.get("/dn",async(req,res)=>{
 	res.render("donor");
 })
 app.post('/req', function(req, res) {
-	// const nam = req.body.nam;
-	// const loc = req.body.loc;
-	// const number = req.body.number;
-	// const item = req.body.item;
-	// console.log(nam);
-	// console.log(number);
-	// db.collection("funds").where("food","==",nam[0]).doc(number[0])
-	// .get().delete().then(() => {
-	// 	conle.log("Document successfully deleted!");
-	// })
 	var m="Your request is collected";
 	res.send(`<script>alert("${m}"); window.history.go(-1);</script>`);
 	// Perform your actions using the data
-  });
+});
 
 app.post("/fo",(req,res)=>{
 	res.render("fundforms");

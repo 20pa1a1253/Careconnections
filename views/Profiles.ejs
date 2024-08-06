@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= user.fullName %> - Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: rgb(255, 253, 251); /* Adjust the color and thickness as needed */
+            margin: 0; /* Remove default margin to ensure the border is flush with the viewport edges */
+            padding: 0;
+            box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+        }
+        #profileTabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem; /* Adjust spacing as needed */
+            margin-top: 1rem;
+        }
+
+        .nav-item {
+            margin: 0 0.5rem; /* Adjust spacing between nav items */
+        }
+
+        .nav-link {
+            text-align: center; /* Center text inside nav links */
+        }
+        .nav-tabs .nav-link.active {
+            background-color: coral; /* Customize active tab color */
+            color: #fff;
+            
+        }
+        .about{
+            display: flex;
+            flex-flow: row wrap;
+            column-gap: 0cap;
+        }
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '>';
+        }
+        .card {
+            margin-bottom: 20px;
+            border-radius: 20px;
+            border-color: rgb(214, 94, 8);
+        }
+        #about-card .card-body p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .card-body p{
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title{
+            text-align: center;
+        }
+        /* Style for the specific card with ID 'about-card' */
+        #about-card {
+            width:100cap;
+            max-width: 500px;
+            margin: auto;
+            padding: 1rem;
+            padding-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(227, 148, 89, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /* Style for the card body inside the specific card */
+        #about-card .card-body {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 0.3rem;
+        }
+
+        /* Style for the content section inside the specific card */
+        .about-content {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        /* Style for the profile image section */
+        .profile-image {
+            flex: 0 0 auto;
+            margin-right: 20px;
+        }
+
+        /* Style for the profile image */
+        .profile-img {
+            width: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Style for the profile information section */
+        .profile-info {
+            flex: 1 1 auto;
+        }
+
+        /* Style for the card title inside the specific card */
+        #about-card .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Style for the paragraphs inside the specific card */
+        
+
+        /* Style for the button inside the specific card */
+        #about-card .btn-primary {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: coral;
+        }
+        .profile-head{
+            text-align: center  ;
+            padding-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="profile-head">
+            <h2><%= user.fullName %>'s Profile</h2>
+        </div>
+
+            <!-- Personal Information Section --> 
+            <div class="col-md-4">
+                <div class="card" id="about-card">
+                    <div class="card-body" id="about">
+                        <h3 class="card-title">ABOUT</h3>
+                        <div class="about-content">
+                            <div class="profile-image">
+                                <img src="<%= user.profilePhotoUrl ? user.profilePhotoUrl : 'public/—Pngtree—default male avatar_5939655.png' %>" class="profile-img" alt="Profile Photo">
+                            </div>
+                            <div class="profile-info">
+                                <p><strong>User Name:</strong> <%= user.fullName %></p>
+                                <p><strong>Mobile Number:</strong> <%= user.phoneNumber %></p>
+                                <p><strong>Email address:</strong> <%= user.email %></p>
+                                <p><strong>Address:</strong> <%= user.address %></p>
+                                <p><strong>Pincode:</strong> <%= user.Pincode %></p>
+                                <a class="btn btn-primary" href="#" role="button">Message</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <ul class="nav nav-tabs mb-4" id="profileTabs">
+            <li class="nav-item">
+                <a class="nav-link active" id="organisation-tab" href="#" onclick="showSection('organisation')">Organisation Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="activity-tab" href="#" onclick="showSection('activity')">Activity</a>
+            </li>
+        </ul>
+
+        <!-- Organisation Information Section -->
+        <div id="organisation" class="content-section">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">ORGANISATION INFO</h3>
+                    <p><strong>Organisation Name:</strong> <%= user.organisationdata.organisationname %></p>
+                    <p><strong>Organisation Type:</strong> <%= user.organisationdata.organisationType %></p>
+                    <p><strong>Organisation Number:</strong> <%= user.organisationdata.organisationnumber %></p>
+                    <p><strong>Number of People to be Served:</strong> <%= user.organisationdata.No_of_people %></p>
+                    <p><strong>Organisation Pancard:</strong> <%= user.PANCARD_NUMBER %></p>
+                    <p><strong>Organisation Registration Certificate:</strong> <a href="<%= user.organisationdata.Organisation_certificate %>">Click here</a></p>
+                    <p><strong>VAT Certificate:</strong> <a href="<%= user.organisationdata.vat_certificate %>">Click here</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Section -->
+        <div id="activity" class="content-section" style="display: none;">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">NEEDS</h3>
+                    <% if (needs.food.length > 0 || needs.clothes.length > 0 || needs.others.length > 0) { %>
+                        <% if (needs.food.length > 0) { %>
+                            <h4>Food Needs</h4>
+                            <% needs.food.forEach(item => { %>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page"><%= item.item%></li>
+                                        <li class="breadcrumb-item">Need Id: <%= item.needId %></li>
+                                        <li class="breadcrumb-item">Status: <%= item.status %></li>
+                                        <% if (item.fullfilledby!="") { %>
+                                            <li class="breadcrumb-item">Fulfilled By: <%= item.fullfilledby %></li>
+                                        <% } %>
+                                        <li class="breadcrumb-item"><a href="#">viewmore</a></li>
+                                    </ol>
+                                </nav>
+                            <% }); %>
+                        <% } %>
+
+                        <% if (needs.clothes.length > 0) { %>
+                            <h4>Clothing Needs</h4>
+                            <% needs.clothes.forEach(item => { %>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page"><%= item.item%></li>
+                                        <li class="breadcrumb-item">Need Id: <%= item.needId %></li>
+                                        <li class="breadcrumb-item">Status: <%= item.status %></li>
+                                        <% if (item.fullfilledby!="") { %>
+                                            <li class="breadcrumb-item">Fulfilled By: <%= item.fulfilledBy %></li>
+                                        <% } %>
+                                        <li class="breadcrumb-item"><a href="#">viewmore</a></li>
+                                    </ol>
+                                </nav>
+                            <% }); %>
+                        <% } %>
+                        <% if (needs.groceries.length > 0) { %>
+                            <h4>Groceries Needs</h4>
+                            <% needs.groceries.forEach(item => { %>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page"><%= item.item%></li>
+                                        <li class="breadcrumb-item">Need Id: <%= item.needId %></li>
+                                        <li class="breadcrumb-item">Status: <%= item.status %></li>
+                                        <% if (item.fullfilledby) { %>
+                                            <li class="breadcrumb-item">Fulfilled By: <%= item.fullfilledby %></li>
+                                        <% } %>
+                                        <li class="breadcrumb-item"><a href="#">view more</a></li>
+                                    </ol>
+                                </nav>
+                            <% }); %>
+                        <% } %>
+                        <% if (needs.others.length > 0) { %>
+                            <h4>Other Needs</h4>
+                            <% needs.others.forEach(item => { %>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item active" aria-current="page"><%= item.item %></li>
+                                        <li class="breadcrumb-item">Need Id: <%= item.needId %></li>
+                                        <li class="breadcrumb-item">Status: <%= item.status %></li>
+                                        <% if (item.fullfilledby!="") { %>
+                                            <li class="breadcrumb-item">Fulfilled By: <%= item.fullfilledby %></li>
+                                        <% } %>
+                                        <li class="breadcrumb-item"><a href="#">viewmore</a></li>
+                                    </ol>
+                                </nav>
+                            <% }); %>
+                        <% } %>
+                    <% } else { %>
+                        <p>No needs placed yet</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(function(sec) {
+                sec.style.display = 'none';
+            });
+
+            // Show the selected section
+            document.getElementById(section).style.display = 'block';
+
+            // Remove 'active' class from all tabs
+            document.querySelectorAll('.nav-link').forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+
+            // Add 'active' class to the clicked tab
+            document.getElementById(`${section}-tab`).classList.add('active');
+        }
+
+        // Show the default section on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('organisation');
+        });
+    </script>
+</body>
+</html>

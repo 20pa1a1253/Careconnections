@@ -47,23 +47,7 @@ top: 13px;
             <div class="col-xl-6">
               <div class="card-body p-md-5 text-black">
                 <h3 class="mb-5 text-uppercase">Donor registration form</h3>
-              <form action="dr" method="post">
-
-                <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <label class="form-label" for="form3Example1m">First name</label>
-                      <input type="text" id="form3Example1m" name="fname" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <label class="form-label" for="form3Example1n">Last name</label>
-                      <input type="text" id="form3Example1n"name="lname" class="form-control form-control-lg" />
-                    </div>
-                  </div>
-                </div>
-
+              <form action="/dr" method="post">
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
@@ -90,13 +74,18 @@ top: 13px;
                   <div class="form-check form-check-inline mb-0">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
                       value="option3" />
-                    <label class="form-check-label" for="otherGender">Other</label>
+                    <label class="form-check-label" for="otherGender">OtherS</label>
                   </div>
 
                 </div>
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example9">Email</label>
-                  <input type="email" id="form3Example9" name="email" placeholder="email signup"class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example9">ADHAR NUMBER</label>
+                  <input  id="adhar" name="adhar" placeholder="enter adhar number"class="form-control form-control-lg" />
+                  
+                </div>
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example9">PANCARD NUMBER</label>
+                  <input  id="form3Example9" name="pan" placeholder="email signup"class="form-control form-control-lg" />
                   
                 </div>
 
@@ -125,5 +114,20 @@ top: 13px;
   </div>
 </section>
 </form>
+<script>
+  function alerting(){
+    let str=document.getElementById("adhar");
+    var str1=str.value;
+
+   if(str1.length!=12 && (!/^\d{12}$/.test(adharNumber))){
+    alert('Aadhar number must contain only numerical digits and should contain 12 numerical digits');
+    return false;
+   }
+   else{
+    return true;
+   }
+  }
+   
+</script>
 </body>
 </html>

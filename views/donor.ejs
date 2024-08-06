@@ -265,14 +265,8 @@
       </button>
       <a class="navbar-brand" href="#myPage">CareConnetions</a> 
     </div> 
-    <% if (JSON.stringify(mark.donar) === 'undefined' || mark.donar === undefined) { %>
-      <% var nam = marks.donar %>
-      <% var useremail = marks.email %>
-    <% } else { %>
-      <% var nam = mark.donar %>
+      <% var nam = mark.fullName %>
       <% var useremail = mark.email %>
-    <% } %>
-    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#about">ABOUT</a></li>
@@ -352,21 +346,21 @@
         <div class="thumbnail">
           <img src="https://media.istockphoto.com/id/1283154274/photo/woman-holding-cardboard-donation-box-full-with-folded-clothes.jpg?s=612x612&w=0&k=20&c=bqJFhv_hRXV3Milqrmuh54eyIiScjgqP6z0iwnnT84I=" alt="Paris" width="400" height="200">
           <p><strong>Clothes</strong></p>
-          <a class="btn btn-primary" href="ned" role="submit">Link</a>
+          <a class="btn btn-primary" href="/need1" role="submit">Link</a>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="thumbnail">
           <img src="https://images.pexels.com/photos/9090750/pexels-photo-9090750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="New York" width="300" height="200">
           <p><strong>Food</strong></p>
-          <a class="btn btn-primary" href="ned" role="submit">Link</a>
+          <a class="btn btn-primary" href="/need2" role="submit">Link</a>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="thumbnail">
           <img src="https://images.pexels.com/photos/6646917/pexels-photo-6646917.jpeg" alt="San Francisco" width="300" height="200">
           <p><strong>Others</strong></p>
-          <a class="btn btn-primary" href="ned" role="submit">Link</a>
+          <a class="btn btn-primary" href="/need3" role="submit">Link</a>
         </div>
       </div>
     <!-- </form> -->
